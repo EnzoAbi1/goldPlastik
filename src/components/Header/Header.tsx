@@ -3,6 +3,7 @@ import { useDisclosure } from '@mantine/hooks';
 import { IconChevronDown } from '@tabler/icons-react';
 import classes from './Header.module.css';
 import { useTranslation } from 'react-i18next';
+import { useNavigate } from 'react-router-dom';
 
 export function Header() {
 
@@ -27,6 +28,7 @@ export function Header() {
 
   const [opened, { toggle }] = useDisclosure(false);
 
+  const navigate = useNavigate()
   const items = links.map((link) => {
     const menuItems = link.links?.map((item) => (
       <Menu.Item key={item.link}>{item.label}</Menu.Item>
@@ -39,7 +41,7 @@ export function Header() {
             <a
               href={link.link}
               className={classes.link}
-              onClick={(event) => event.preventDefault()}
+         
             >
               <Center>
                 <span className={classes.linkLabel}>{link.label}</span>
@@ -57,7 +59,7 @@ export function Header() {
         key={link.label}
         href={link.link}
         className={classes.link}
-        onClick={(event) => event.preventDefault()}
+        
       >
         {link.label}
       </a>
@@ -66,9 +68,9 @@ export function Header() {
 
   return (
     <header className={classes.header}>
-      <Container size="md">
+      <Container size="xl">
         <div className={classes.inner}>
-          <Image src="assets/BeyazLogo.jpg" w={300}></Image>
+          <Image src="assets/BeyazLogo.jpg" w={200}></Image>
           <Group gap={5} visibleFrom="sm">
             {items}
           </Group>
