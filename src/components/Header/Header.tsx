@@ -1,34 +1,30 @@
-import { Menu, Group, Center, Burger, Container } from '@mantine/core';
+import { Menu, Group, Center, Burger, Container, Image } from '@mantine/core';
 import { useDisclosure } from '@mantine/hooks';
 import { IconChevronDown } from '@tabler/icons-react';
 import classes from './Header.module.css';
-
-const links = [
-  { link: '/about', label: 'About' },
-  {
-    link: '#1',
-    label: 'Learn',
-    links: [
-      { link: '/docs', label: 'Documentation' },
-      { link: '/resources', label: 'Resources' },
-      { link: '/community', label: 'Community' },
-      { link: '/blog', label: 'Blog' },
-    ],
-  },
-  { link: '/about', label: 'About' },
-  { link: '/pricing', label: 'Pricing' },
-  {
-    link: '#2',
-    label: 'Support',
-    links: [
-      { link: '/faq', label: 'FAQ' },
-      { link: '/demo', label: 'Book a demo' },
-      { link: '/forums', label: 'Forums' },
-    ],
-  },
-];
+import { useTranslation } from 'react-i18next';
 
 export function Header() {
+
+
+  const { t } = useTranslation();
+  const links = [
+    { link: '/about', label: t("About") },
+    { link: '/contact', label: t("Contact") },
+    {
+      link: '#2',
+      label: t("Products"),
+      links: [
+        { link: '/products1', label: t("products1") },
+        { link: '/products2', label: t("products2") },
+        { link: '/products3', label: t("products3") },
+        { link: '/products4', label: t("products4") },
+        { link: '/products5', label: t("products5") },
+        { link: '/products6', label: t("products6") },
+      ],
+    },
+  ];
+
   const [opened, { toggle }] = useDisclosure(false);
 
   const items = links.map((link) => {
@@ -72,10 +68,11 @@ export function Header() {
     <header className={classes.header}>
       <Container size="md">
         <div className={classes.inner}>
-        
+          <Image src="assets/BeyazLogo.jpg" w={300}></Image>
           <Group gap={5} visibleFrom="sm">
             {items}
           </Group>
+
           <Burger opened={opened} onClick={toggle} size="sm" hiddenFrom="sm" />
         </div>
       </Container>
