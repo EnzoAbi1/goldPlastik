@@ -4,11 +4,18 @@ import { IconChevronDown } from '@tabler/icons-react';
 import classes from './Header.module.css';
 import { useTranslation } from 'react-i18next';
 import { useNavigate } from 'react-router-dom';
+import i18next from "i18next"
+import React, { useEffect } from 'react';
+import ReactCountryFlag from 'react-country-flag';
 
 export function Header() {
-
-
-  const { t } = useTranslation();
+  const { t, i18n } = useTranslation();
+  const currentLanguage = i18next.language
+  const getCurrentFlag = (language: string) => {
+    return <ReactCountryFlag style={{ width: "36px" }} svg countryCode={language} />;
+  }
+  const languages = ["gb", "de", "bg", "tr"]
+  const languageMenu = languages.map((lol: string) => { return <Menu.Item onClick={() => i18n.changeLanguage(lol)}>{getCurrentFlag(lol)}</Menu.Item> })
   const links = [
     { link: '/about', label: t("About") },
     { link: '/contact', label: t("Contact") },
@@ -31,7 +38,7 @@ export function Header() {
   const navigate = useNavigate()
   const items = links.map((link) => {
     const menuItems = link.links?.map((item) => (
-      <Menu.Item key={item.link}>{item.label}</Menu.Item>
+      <Menu.Item key={item.link} >{item.label}</Menu.Item>
     ));
 
     if (menuItems) {
@@ -41,7 +48,7 @@ export function Header() {
             <a
               href={link.link}
               className={classes.link}
-         
+
             >
               <Center>
                 <span className={classes.linkLabel}>{link.label}</span>
@@ -59,7 +66,6 @@ export function Header() {
         key={link.label}
         href={link.link}
         className={classes.link}
-        
       >
         {link.label}
       </a>
@@ -73,6 +79,17 @@ export function Header() {
           <Image src="assets/BeyazLogo.jpg" w={200}></Image>
           <Group gap={5} visibleFrom="sm">
             {items}
+            <Menu trigger="hover" transitionProps={{ exitDuration: 0 }} withinPortal>
+              <Menu.Target>
+
+                <Center>
+                  <span className={classes.linkLabel}>{getCurrentFlag(currentLanguage)}</span>
+                  <IconChevronDown size="0.9rem" stroke={1.5} />
+                </Center>
+
+              </Menu.Target>
+              <Menu.Dropdown>{languageMenu}</Menu.Dropdown>
+            </Menu>
           </Group>
 
           <Burger opened={opened} onClick={toggle} size="sm" hiddenFrom="sm" />

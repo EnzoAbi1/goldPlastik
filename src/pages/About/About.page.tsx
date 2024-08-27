@@ -1,9 +1,8 @@
-import React from 'react'
 import styles from "./About.page.module.scss"
 import { Header } from '@/components/Header/Header'
 import { IconMap } from '@tabler/icons-react'
 import { useTranslation } from 'react-i18next'
-import { Card, CardSection, Center, Container, Flex, Title } from '@mantine/core'
+import { Card, Center, Container, Flex, Title } from '@mantine/core'
 import Map from '@/components/Map/Map'
 
 
