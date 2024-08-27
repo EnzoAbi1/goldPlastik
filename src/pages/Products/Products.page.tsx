@@ -1,13 +1,9 @@
 import React from 'react'
-import styles from "./Products.page.module.scss"
-import { Header } from '@/components/Header/Header'
+
 const Products = () => {
-
-
-
-    return (
-        <div className={styles.main}><div className={styles.header}><Header /></div></div>
-    )
+  return (
+    <div>Products.page</div>
+  )
 }
 
 export default Products

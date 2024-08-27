@@ -20,7 +20,7 @@ export function Header() {
     { link: '/about', label: t("About") },
     { link: '/contact', label: t("Contact") },
     {
-      link: '#2',
+      link: '/category',
       label: t("Products"),
       links: [
         { link: '/products1', label: t("products1") },
@@ -38,7 +38,7 @@ export function Header() {
   const navigate = useNavigate()
   const items = links.map((link) => {
     const menuItems = link.links?.map((item) => (
-      <Menu.Item key={item.link} >{item.label}</Menu.Item>
+      <Menu.Item key={item.link} onClick={() => navigate(item.link)} >{item.label}</Menu.Item>
     ));
 
     if (menuItems) {
@@ -48,7 +48,6 @@ export function Header() {
             <a
               href={link.link}
               className={classes.link}
-
             >
               <Center>
                 <span className={classes.linkLabel}>{link.label}</span>
