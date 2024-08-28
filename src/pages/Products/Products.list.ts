@@ -1,37 +1,48 @@
 export interface IProduct {
     name: string,
-    media: IProductMedia,
+    media: IProductMedia[],
     information: string,
-    category: string,
+    category: ICategoryName,
 }
 export interface IProductMedia {
     name: string,
     url: string,
 
 }
+export interface ICategory {
+    name: ICategoryName,
+    content: string,
+    img: string,
+    link: string
+}
+export enum ICategoryName {
+    category1 = "category1"
+    , category2 = "category2",
+    category3 = "category3"
+}
 export const productList: IProduct[] =
     [{
         name: "Product 1",
-        media: { name: "Back", url: "/assets/products/1.jpg" },
+        media: [{ name: "Back", url: "/assets/categories/shelf.jpg" }],
         information: " this is a crucial information",
-        category: "raf",
+        category: ICategoryName.category1,
 
     }, {
         name: "Product 2",
-        media: { name: "lol", url: "/assets/products/2.jpg" },
+        media: [{ name: "lol", url: "/assets/categories/shelf.jpg" }],
         information: "this is a crucial information",
-        category: "lol",
+        category: ICategoryName.category2,
     },
     {
         name: "Product 3",
-        media: { name: "ll", url: "/assets/products/3.jpg" },
+        media: [{ name: "ll", url: "/assets/categories/shelf.jpg" }],
         information: " this is a crucial information"
         ,
-        category: "string",
+        category: ICategoryName.category1,
     }, {
         name: "Product 4",
-        media: { name: "ll", url: "/assets/products/3.jpg" },
+        media: [{ name: "ll", url: "/assets/categories/shelf.jpg" }],
         information: " this is a crucial information"
-        , category: "temizlik",
+        , category: ICategoryName.category2,
     }
     ]

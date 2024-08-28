@@ -1,16 +1,19 @@
 import React from 'react'
 import styles from "./Category.page.module.scss"
 import { Header } from '@/components/Header/Header'
-import { Card, Container, Flex, Image, Title } from '@mantine/core'
+import { Card, Center, Container, Flex, Image, Title } from '@mantine/core'
 import { useNavigate } from 'react-router-dom'
+import { ICategory } from '../Products/Products.list'
 const Category = () => {
+
     const navigate = useNavigate()
-    const categories = [{ name: "Raflar", img: "/assets/categories/shelf.jpg", content: "lorem ipsum", link: "/products1" },
-    { name: "Kategori 2", img: "/assets/categories/shelf.jpg", content: "lorem ipsum", link: "/products2" },
-    { name: "Kategori 3", img: "/assets/categories/shelf.jpg", content: "lorem ipsum", link: "/products3" },
-    { name: "Kategori 4", img: "/assets/categories/shelf.jpg", content: "lorem ipsum", link: "/products4" },
-    { name: "Kategori 5", img: "/assets/categories/shelf.jpg", content: "lorem ipsum", link: "/products5" },
-    { name: "Kategori 6", img: "/assets/categories/shelf.jpg", content: "lorem ipsum", link: "/products6" }]
+    const categories =
+        [{ name: "Raflar", img: "/assets/categories/shelf.jpg", content: "lorem ipsum", link: "/products/category1" },
+        { name: "Kategori 2", img: "/assets/categories/shelf.jpg", content: "lorem ipsum", link: "/products/category2" },
+        { name: "Kategori 3", img: "/assets/categories/shelf.jpg", content: "lorem ipsum", link: "/products/category3" },
+        { name: "Kategori 4", img: "/assets/categories/shelf.jpg", content: "lorem ipsum", link: "/products/category4" },
+        { name: "Kategori 5", img: "/assets/categories/shelf.jpg", content: "lorem ipsum", link: "/products/category5" },
+        { name: "Kategori 6", img: "/assets/categories/shelf.jpg", content: "lorem ipsum", link: "/products/category6" }]
 
     return (
         <div className={styles.main}>
@@ -28,8 +31,8 @@ const Category = () => {
                             }}
                             onClick={() => navigate(category.link)}
                         >
-                            <Card.Section><Title>{category.name}</Title>
-                            </Card.Section><Card.Section><Image h={250} src={category.img} /> </Card.Section>
+                            <Card.Section><Center><Title>{category.name}</Title></Center>
+                            </Card.Section><Card.Section><Image h={250} src={category.img} /></Card.Section>
                             <Card.Section>{category.content}</Card.Section>
                         </Card>
                     })}

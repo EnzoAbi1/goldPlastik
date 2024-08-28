@@ -23,12 +23,12 @@ export function Header() {
       link: '/category',
       label: t("Products"),
       links: [
-        { link: '/products1', label: t("products1") },
-        { link: '/products2', label: t("products2") },
-        { link: '/products3', label: t("products3") },
-        { link: '/products4', label: t("products4") },
-        { link: '/products5', label: t("products5") },
-        { link: '/products6', label: t("products6") },
+        { link: '/products/category1', label: t("products1") },
+        { link: '/products/category2', label: t("products2") },
+        { link: '/products/category3', label: t("products3") },
+        { link: '/products/category4', label: t("products4") },
+        { link: '/products/category5', label: t("products5") },
+        { link: '/products/category6', label: t("products6") },
       ],
     },
   ];
@@ -75,7 +75,7 @@ export function Header() {
     <header className={classes.header}>
       <Container size="xl">
         <div className={classes.inner}>
-          <Image src="assets/BeyazLogo.jpg" w={200}></Image>
+          <Image src="/assets/BeyazLogo.jpg" onClick={()=> navigate("/")} w={200}></Image>
           <Group gap={5} visibleFrom="sm">
             {items}
             <Menu trigger="hover" transitionProps={{ exitDuration: 0 }} withinPortal>
