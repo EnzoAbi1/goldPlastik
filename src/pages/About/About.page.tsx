@@ -28,8 +28,6 @@ const About = () => {
                             <Card.Section p={"xs"}><Flex align={"center"}><IconMap color='#dbb47b'></IconMap> {t("adress")} </Flex></Card.Section>
                             <Card.Section p={"xs"}><Map /></Card.Section>
                         </Card>
-
-
                     </div>
                     <div> <Card m={10} withBorder w={350} h={550}
                         shadow="md" radius={"lg"} p={"lg"}

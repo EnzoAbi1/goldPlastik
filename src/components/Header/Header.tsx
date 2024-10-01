@@ -1,4 +1,4 @@
-import { Menu, Group, Center, Burger, Container, Image } from '@mantine/core';
+import { Menu, Group, Center, Burger, Container, Image, Anchor } from '@mantine/core';
 import { useDisclosure } from '@mantine/hooks';
 import { IconChevronDown } from '@tabler/icons-react';
 import classes from './Header.module.css';
@@ -38,7 +38,7 @@ export function Header() {
   const navigate = useNavigate()
   const items = links.map((link) => {
     const menuItems = link.links?.map((item) => (
-      <Menu.Item key={item.link} onClick={() => navigate(item.link)} >{item.label}</Menu.Item>
+      <Menu.Item key={item.link}  ><Anchor  href={item.link} >{item.label}</Anchor></Menu.Item>
     ));
 
     if (menuItems) {
