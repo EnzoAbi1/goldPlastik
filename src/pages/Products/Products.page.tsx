@@ -39,7 +39,10 @@ const navigate = useNavigate()
           <Card.Section><Carousel height={200} withIndicators>{carouselSlides(product)}</Carousel></Card.Section>
           <Card.Section>{product.information}</Card.Section>
         </Card>
-      })}</Container>
+
+      })
+    }
+  </Container>
     </div>
   )
 }

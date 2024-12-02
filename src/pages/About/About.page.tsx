@@ -38,14 +38,14 @@ const About = () => {
                             },
                         }}>
                         <Card.Section p={"xs"}><Center><Title order={2}>{t("AboutUs")}</Title></Center></Card.Section></Card></div>
-                    <div><Card m={10} withBorder w={350} h={550}
+                    <div><Card m={10} withBorder w={600} h={550}
                         shadow="md" radius={"lg"} p={"lg"}
                         styles={{
                             root: {
                                 borderColor: '#dbb47b', // Your desired border color here
                                 borderWidth: "2px"
                             },
-                        }}><Card.Section><Center><Title order={2}>{t("ContactUs")}</Title></Center></Card.Section></Card> </div>
+                        }}><Card.Section><Center><Title order={2}>{t("ContactUs")}</Title>   <iframe width={300} height={"100%"} src='https://signlanguage.charamel.com/player/?key=v2jGeDIQAirDNURVyUcmO63NFG2Q&autostart=false'></iframe></Center></Card.Section></Card> </div>
                 </div>
 
             </Container>
